@@ -12,7 +12,7 @@ jobs:
     steps:
       - id: test
         run: |
-          exit 1
+          exit 0
           echo "::set-output name=status::success"
       - if: failure() && steps.test.outputs.status != 'success'
         run: echo failed
