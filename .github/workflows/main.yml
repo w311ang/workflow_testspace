@@ -14,5 +14,5 @@ jobs:
         run: |
           exit 1
           echo "::set-output name=status::success"
-      - if: steps.test.outputs.status != 'success'
+      - if: failure() && steps.test.outputs.status != 'success'
         run: echo failed
