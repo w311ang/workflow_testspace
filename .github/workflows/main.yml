@@ -1,0 +1,18 @@
+name: test
+
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - id: test
+        run: |
+          exit 1
+          echo "::set-output name=status::success"
+      - if: steps.test.outputs.status != 'success'
+        run: echo failed
